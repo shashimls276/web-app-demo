@@ -1,0 +1,14 @@
+node('staging-through SSH'){
+    stage('Checkout'){
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7e5bcf3f-14cb-4fba-acc5-c63b350caabd', url: 'https://github.com/shashimls276/web-app-demo.git']]])
+    }
+    stage('Build'){
+        echo 'build the project';
+    }
+    stage('Test'){
+        echo 'Unit Testing';
+    }
+    stage('deploy'){
+        echo 'Deploy the project';
+    }
+}
