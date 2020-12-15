@@ -3,9 +3,7 @@ node('staging-through SSH'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7e5bcf3f-14cb-4fba-acc5-c63b350caabd', url: 'https://github.com/shashimls276/web-app-demo.git']]])
     }
     stage('Build'){
-        steps{
-            sh "mvn clean install"
-        }
+        sh "mvn clean install"
     }
     stage('Test'){
         echo 'Unit Testing';
