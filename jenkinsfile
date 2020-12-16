@@ -5,10 +5,14 @@ node('staging-through SSH'){
     stage('Build'){
         sh "mvn clean install"
     }
+    
     stage('Test'){
         echo 'Unit Testing';
     }
     stage('deploy'){
+        sshagent(['WfmtDEV']) {
+            echo 'sshagent the project';
+        }
         echo 'Deploy the project';
     }
 }
