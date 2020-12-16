@@ -12,6 +12,7 @@ node('staging-through SSH'){
     stage('deploy'){
         sshagent(['WfmtDEV']) {
             echo 'sshagent the project';
+            sh "ls -l"
         }
         echo 'Deploy the project';
     }
